@@ -21,6 +21,7 @@ This project is a simple REST API for managing a movie database. It allows users
 4. **Set up the database**
    
    Create a PostgreSQL database (e.g., movies_db).
+   
    Update the **app.module.ts** or your **.env** file with your database connection details.
 
 6. **Run the Application**
