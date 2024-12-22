@@ -27,3 +27,7 @@ This project is a simple REST API for managing a movie database. It allows users
 6. **Run the Application**
    ```bash
    npm run start
+
+## Implemented Functionalities
+
+
