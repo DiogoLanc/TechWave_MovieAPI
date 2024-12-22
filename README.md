@@ -18,6 +18,9 @@ This project is a simple REST API for managing a movie database. It allows users
    ```bash
    npm install
 
-4. **Run the Application**
+4. **Set up the database**
+   
+
+6. **Run the Application**
    ```bash
    npm run start
