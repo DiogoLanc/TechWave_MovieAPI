@@ -29,5 +29,15 @@ This project is a simple REST API for managing a movie database. It allows users
    npm run start
 
 ## Implemented Functionalities
+This API handles two main entities: movies and genres, with a many-to-many relationship between them.
 
+Every operation was implemented:
 
+- ListMovies - list all movies 
+- AddMovie - add a movie to the database
+- UpdateMovie - update the details of a movie by id
+- DeleteMovie - delete a specific movie by id
+- ListGenres - list all genres
+- AddGenre - add a genre to the database
+- DeleteGenre - delete a specific genre by id
+- SearchMovies - search movies by title, genre or both.
