@@ -19,8 +19,9 @@ This project is a simple REST API for managing a movie database. It allows users
    npm install
 
 4. **Set up the database**
-   
+   Create a PostgreSQL database (e.g., movies_db).
+   Update the **app.module.ts** or your **.env** file with your database connection details.
 
-6. **Run the Application**
+5. **Run the Application**
    ```bash
    npm run start
