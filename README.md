@@ -36,7 +36,9 @@ Every operation was implemented:
 - ListMovies - list all movies
      - GET (http://localhost:3000/movies)
 - AddMovie - add a movie to the database
+     - PUT (http://localhost:3000/movies/:id)
 - UpdateMovie - update the details of a movie by id
+     - POST (http://localhost:3000/movies/:id)
 - DeleteMovie - delete a specific movie by id
 - ListGenres - list all genres
 - AddGenre - add a genre to the database
