@@ -7,7 +7,7 @@ This project is a simple REST API for managing a movie database. It allows users
 
    Open the terminal and clone the repository to your local machine:
    ```bash
-   git clone https://github.com/DiogoLanc/.git
+   git clone https://github.com/DiogoLanc/TechWave_MovieAPI.git
    ```
    Go to the main folder:
    ```bash
