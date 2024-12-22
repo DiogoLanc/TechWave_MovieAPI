@@ -1,0 +1,769 @@
+{
+	"info": {
+		"_postman_id": "2b169092-d84b-48ab-b90d-3395b50492a4",
+		"name": "TechWave Movie API",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14951939"
+	},
+	"item": [
+		{
+			"name": "ListMovies | ListGenres | SearchMovies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/movies/search?tittle=Bruno&genre=Drama",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"search"
+					],
+					"query": [
+						{
+							"key": "tittle",
+							"value": "Bruno"
+						},
+						{
+							"key": "genre",
+							"value": "Drama"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ListMovies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "667"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29b-zcGgTSMX1DDZcPP084LYRo43wd4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:39:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"The White Bruno\",\n        \"description\": \"A thrilling superhero adventure.\",\n        \"releaseDate\": \"2024-07-19T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Comedy\"\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Comedy Nights\",\n        \"description\": \"A laugh-out-loud comedy movie.\",\n        \"releaseDate\": \"2023-12-10T00:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 2,\n                \"name\": \"Comedy\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Action Hero\",\n        \"description\": \"High-energy action-packed film.\",\n        \"releaseDate\": \"2024-05-14T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            }\n        ]\n    },\n    {\n        \"id\": 23,\n        \"title\": \"Black Bruno\",\n        \"description\": \"White Bruno Rival\",\n        \"releaseDate\": \"2024-10-18T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Drama\"\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "ListGenres",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/genres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4b-CoN5mAX2Dp8tDf3iTevGIJTc5jQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:49:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Action\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Comedy\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Drama\"\n    }\n]"
+				},
+				{
+					"name": "SearchMovies | Tittle and Genre",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/search?tittle=Bruno&genre=Drama",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "tittle",
+									"value": "Bruno"
+								},
+								{
+									"key": "genre",
+									"value": "Drama"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "143"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8f-GrpX225pFV6CetZ9sLUmKO+XpPo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 22:36:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 23,\n        \"title\": \"Black Bruno\",\n        \"description\": \"White Bruno Rival\",\n        \"releaseDate\": \"2024-10-18T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 3,\n                \"name\": \"Drama\"\n            }\n        ]\n    }\n]"
+				},
+				{
+					"name": "SearchMovies | Genre",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/movies/search?genre=Action",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "genre",
+									"value": "Action"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "434"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b2-FpRBmTfBb1YnPJGRBnurByDKmVk\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 22:38:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Funny Spider Man\",\n        \"description\": \"Hero\",\n        \"releaseDate\": \"2019-02-19T00:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"title\": \"Action Hero\",\n        \"description\": \"High-energy action-packed film.\",\n        \"releaseDate\": \"2024-05-14T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            }\n        ]\n    },\n    {\n        \"id\": 23,\n        \"title\": \"Black Bruno\",\n        \"description\": \"White Bruno Rival\",\n        \"releaseDate\": \"2024-10-18T23:00:00.000Z\",\n        \"genres\": [\n            {\n                \"id\": 1,\n                \"name\": \"Action\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "AddMovie | AddGenre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						""
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "AddMovie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "114"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"72-oq5IHY6GY4NrvgJJIOn4DbF1X90\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:41:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        }\n    ],\n    \"id\": 24\n}"
+				},
+				{
+					"name": "AddGenre",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sci-Fi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/genres/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "25"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"19-f1IuvKKLTvYSteDRUKRqZ7td72M\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:52:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Sci-Fi\",\n    \"id\": 12\n}"
+				}
+			]
+		},
+		{
+			"name": "UpdateMovie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Funny Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Comedy\"\n        }\n\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"1"
+					]
+				},
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "UpdateMovie",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Funny Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Comedy\"\n        }\n\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "144"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"90-eexzsDFlvrzUhJ8s0B3rFX2o6uY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:44:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Funny Spider Man\",\n    \"description\": \"Hero\",\n    \"releaseDate\": \"2019-02-19\",\n    \"genres\": [\n        {\n            \"id\": 1,\n            \"name\": \"Action\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Comedy\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteMovie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/movies/24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"movies",
+						"24"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "DeleteMovie",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/movies/24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"24"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-5nJwIec7H98myIgQi1Ey/9WgxBU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:46:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Movie with ID 24 successfully deleted\"\n}"
+				},
+				{
+					"name": "DeleteGenre",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/genres/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"genres",
+								"12"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-ZDt+Upy5E20eFTd0osNUhwz5Mio\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 22 Dec 2024 21:54:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Genre with ID 12 successfully deleted\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
