@@ -11,7 +11,7 @@ import { GenresModule } from './genres/genres.module';
       type: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'techwave_user',
+      username: 'postgres',
       password: '123',
       database: 'movie_db',
       autoLoadEntities: true,
