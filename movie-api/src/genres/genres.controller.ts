@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Delete, Param } from '@nestjs/common';
 import { GenresService } from './genres.service';
 import { Genre } from './genre';
 
-@Controller('genres') // route prefix for genres
+@Controller('genres') // base route for genres
 export class GenresController {
   constructor(private readonly genresService: GenresService) {}
 
@@ -16,5 +16,12 @@ export class GenresController {
   @Post()
   async addGenre(@Body() genreData: { name: string }): Promise<Genre> {
     return this.genresService.addGenre(genreData);
+  }
+
+  // delete a genre
+  @Delete(':id') // route -> /genres/:id
+  async deleteGenre(@Param('id') id: number): Promise<{ message: string }> {
+    await this.genresService.deleteGenre(id);
+    return { message: `Genre with ID ${id} successfully deleted` };
   }
 }
