@@ -25,7 +25,8 @@ export class MoviesController {
 
   // delete a movie from the database
   @Delete(':id') // Route: DELETE /movies/:id
-  async deleteMovie(@Param('id') id: number) {
-    return this.moviesService.deleteMovie(id);
+  async deleteMovie(@Param('id') id: number): Promise<{ message: string }> {
+    await this.moviesService.deleteMovie(id);
+    return { message:`Movie with ID ${id} successfully deleted`}
   }
 }
