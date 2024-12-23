@@ -48,5 +48,4 @@ Every operation was implemented:
 - DeleteGenre - delete a specific genre by id
      - DELETE (http://localhost:3000/movies/:id)
 - SearchMovies - search movies by title, genre or both.
-     - GET (http://localhost:3000/movies/search?title=)
-     - GET (http://localhost:3000/movies/search?genre=)
+     - GET (http://localhost:3000/movies/search?)
