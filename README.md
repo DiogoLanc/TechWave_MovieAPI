@@ -42,6 +42,11 @@ Every operation was implemented:
 - DeleteMovie - delete a specific movie by id
      - DELETE (http://localhost:3000/movies/:id)
 - ListGenres - list all genres
+     - GET (http://localhost:3000/genres)
 - AddGenre - add a genre to the database
+     - POST (http://localhost:3000/genres/)
 - DeleteGenre - delete a specific genre by id
+     - DELETE (http://localhost:3000/movies/:id)
 - SearchMovies - search movies by title, genre or both.
+     - GET (http://localhost:3000/movies/search?title=)
+     - GET (http://localhost:3000/movies/search?genre=)
